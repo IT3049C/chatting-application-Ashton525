@@ -57,7 +57,14 @@ const JSonMessage =
     text: formatMessages,
     sender: nameInput,
     timestamp: new Date()
-  }
+  };
+  fetch(serverURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(JSonMessage)
+  })
 
 const newMessage = formatchat(JSonMessage, nameInput)
 chatBox.innerHTML += newMessage;
@@ -70,6 +77,9 @@ sendButton.addEventListener("click", function(event){
   send( sender, message);
   messageInput.value = "";
 });
+
+setInterval(updateMessagesInChatBox, 10000);
+
 
 
 
