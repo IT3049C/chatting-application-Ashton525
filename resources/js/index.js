@@ -35,5 +35,27 @@ function formatchat (message, userNameInput){
 }
 
 function fetchMessages(){
-  return fetch(`messages`)
+  return  [
+    {
+      id: 1,
+      text: "This app sucks",
+      sender: "Steve Jobs",
+      timestamp: 15347968285
+    },
+    {
+      id: 2,
+      text: "I am that richest",
+      sender: "Bill Gates",
+      timestamp: 153475782
+    },
+    {
+      id: 3,
+      text: "I am the scout here",
+      sender: "Scout",
+      timestamp: 15347812
+    }
+  ];
+}
+function updateMessagesInChatBox(){
+  
 }
