@@ -4,8 +4,8 @@ const sendButton = document.getElementById('send-button')
 const chatBox = document.getElementById('chat')
 
 function formatchat (message, userNameInput){
-  const time = new Date().message.timestamp
-  const readabletime = `${(time.gethours())} + : + ${time.getMinutes()}`
+  const time = new Date(message.timestamp);
+  const readabletime = `${(time.getHours())}:${time.getMinutes()}`;
 
   if (userNameInput === message.sender)
   {
@@ -33,29 +33,43 @@ function formatchat (message, userNameInput){
     `
   }
 }
+const serverURL = `https://it3049c-chat.fly.dev/messages`;
 
 function fetchMessages(){
-  return  [
-    {
-      id: 1,
-      text: "This app sucks",
-      sender: "Steve Jobs",
-      timestamp: 15347968285
-    },
-    {
-      id: 2,
-      text: "I am that richest",
-      sender: "Bill Gates",
-      timestamp: 153475782
-    },
-    {
-      id: 3,
-      text: "I am the scout here",
-      sender: "Scout",
-      timestamp: 15347812
-    }
-  ];
+  return fetch(serverURL)
+  .then(response => response.json());
 }
-function updateMessagesInChatBox(){
-  
+async function updateMessagesInChatBox(){
+const arrayOfMessages = await fetchMessages();
+let formatMessages = "";
+arrayOfMessages.forEach((message) => {
+  formatMessages += formatchat(message, nameInput.value)
+});
+//ask about logging messages variable in console?
+chatBox.innerHTML = formatMessages
+//+= simplified f = m + m
 }
+updateMessagesInChatBox();
+
+function send(nameInput,formatMessages){
+const JSonMessage =
+  {
+    text: formatMessages,
+    sender: nameInput,
+    timestamp: new Date()
+  }
+
+const newMessage = formatchat(JSonMessage, nameInput)
+chatBox.innerHTML += newMessage;
+}
+
+sendButton.addEventListener("click", function(event){
+  event.preventDefault();
+  const sender = nameInput.value
+  const message = messageInput.value
+  send( sender, message);
+  messageInput.value = "";
+});
+
+
+
