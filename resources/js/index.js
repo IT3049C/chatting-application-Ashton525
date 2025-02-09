@@ -79,6 +79,7 @@ sendButton.addEventListener("click", function(event){
 });
 
 setInterval(updateMessagesInChatBox, 10000);
+//had to increase global timeout to 20 seconds to get last test to work
 
 
 
