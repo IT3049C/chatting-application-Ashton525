@@ -10,7 +10,7 @@ Chatting Application
 <!-- Write your self-reflection under this line -->
 
 ### How long it took me to finish this?
-This was faster than rock paper scissors. I was able to use the functions a bit easier. The netcode looks pretty foreign but I just have to get used to it. Overall, it took me about 3 hours
+This was faster than rock paper scissors. I was able to use the functions a bit easier. The netcode looks pretty foreign but I just have to get used to it. Overall, it took me about 3 hours.
 
 
 ## Discussion Questions:
